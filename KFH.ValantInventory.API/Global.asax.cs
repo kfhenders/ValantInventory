@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Formatting;
+﻿using System.Configuration;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace KFH.ValantInventory.API
@@ -8,6 +9,7 @@ namespace KFH.ValantInventory.API
         protected void Application_Start()
         {
             ForceJson();
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
 

@@ -13,8 +13,8 @@ namespace KFH.ValantInventory.API
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{label}",
+                defaults: new { label = RouteParameter.Optional }
             );
         }
     }
