@@ -27,12 +27,12 @@ namespace KFH.ValantInventory.API.Controllers
             return Request.CreateResponse(HttpStatusCode.NotImplemented);
         }
 
-        public async Task<HttpResponseMessage> Post([FromBody]Inventory item )
+        public async Task<HttpResponseMessage> Post([FromBody]Inventory item)
         {
             return Request.CreateResponse(HttpStatusCode.NotImplemented);
         }
 
-        public async Task<HttpResponseMessage> Put([FromBody]string value)
+        public async Task<HttpResponseMessage> Put([FromBody]Inventory item)
         {
             return Request.CreateResponse(HttpStatusCode.NotImplemented);
         }

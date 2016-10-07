@@ -28,7 +28,7 @@ namespace KFH.ValantInventory.DataAccess
         {
             if (!_localDataStore.ContainsKey(label))
             {
-                throw new InventoryNotFoundException(label);   
+                return Task.FromResult(default(Inventory));
             }
             return Task.FromResult(_localDataStore[label]);
         }

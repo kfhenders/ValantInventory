@@ -8,6 +8,7 @@ namespace KFH.ValantInventory.Common.Models
         public string Label { get; set; }
         public DateTime ExpirationDateUtc { get; set; }
         public string Type { get; set; }
+        public bool ExpirationQueued { get; set; }
 
         public bool IsExpired
         {
