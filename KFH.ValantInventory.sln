@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.Common", "KFH.ValantInventory.Common\KFH.ValantInventory.Common.csproj", "{42461DED-679B-4747-ACE7-493B8D44C601}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F17C8C3C-1D1C-48D2-B12E-D30D5A622883}"
+	ProjectSection(SolutionItems) = preProject
+		ValantInventory.postman_collection.json = ValantInventory.postman_collection.json
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.UnitTests", "KFH.ValantInventory.UnitTests\KFH.ValantInventory.UnitTests.csproj", "{C9F7A052-2E77-4C09-95A0-B61A01786D24}"
 EndProject

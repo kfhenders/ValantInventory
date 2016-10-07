@@ -36,6 +36,9 @@ namespace KFH.ValantInventory.UnitTests.CoreTests
 
             var result = await repo.AddOrUpdateAsync(item).ConfigureAwait(false);
             Assert.IsFalse(result);
+
+            // Make sure update is called
+            mockDataAccessClient.Verify(ir => ir.UpdateAsync(item),Times.Once);
             
         }
 

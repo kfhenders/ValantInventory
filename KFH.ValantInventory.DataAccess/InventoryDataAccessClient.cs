@@ -10,9 +10,9 @@ namespace KFH.ValantInventory.DataAccess
 {
     public class InventoryDataAccessClient : IInventoryDataAccessClient
     {
-        static ConcurrentDictionary<string, Inventory> _localDataStore = new ConcurrentDictionary<string, Inventory>();
+        private static readonly  ConcurrentDictionary<string, Inventory> LocalDataStore = new ConcurrentDictionary<string, Inventory>();
 
-        public ILogger _logger;
+        private readonly ILogger _logger;
 
         public InventoryDataAccessClient(ILogger logger)
         {
@@ -21,32 +21,34 @@ namespace KFH.ValantInventory.DataAccess
 
         public Task<bool> CreateAsync(Inventory item)
         {
-            return Task.FromResult(_localDataStore.TryAdd(item.Label, item));
+            return Task.FromResult(LocalDataStore.TryAdd(item.Label, item));
         }
 
         public Task<Inventory> ReadAsync(string label)
         {
-            if (!_localDataStore.ContainsKey(label))
+            if (!LocalDataStore.ContainsKey(label))
             {
                 return Task.FromResult(default(Inventory));
             }
-            return Task.FromResult(_localDataStore[label]);
+            return Task.FromResult(LocalDataStore[label]);
         }
 
-        public async Task<bool> UpdateAsync(Inventory item)
+        public Task<bool> UpdateAsync(Inventory item)
         {
-            bool added = await CreateAsync(item).ConfigureAwait(false);
-            if (!added)
+            if (!LocalDataStore.ContainsKey(item.Label))
             {
-                _localDataStore[item.Label] = item;
+                return Task.FromResult(false);
             }
-            return added;
+
+            LocalDataStore[item.Label] = item;
+
+            return Task.FromResult(true);
         }
 
         public Task<bool> DeleteAsync(string label)
         {
             Inventory item;
-            return Task.FromResult(_localDataStore.TryRemove(label, out item));
+            return Task.FromResult(LocalDataStore.TryRemove(label, out item));
         }
 
     }

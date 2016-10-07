@@ -7,7 +7,7 @@ namespace KFH.ValantInventory.Core.Factories
 {
     public class InventoryDataAccessFactory : IInventoryDataAccessFactory
     {
-        public ILogger _logger;
+        private readonly ILogger _logger;
 
         public InventoryDataAccessFactory(ILogger logger)
         {
