@@ -8,6 +8,7 @@ namespace KFH.ValantInventory.API
         protected void Application_Start()
         {
             ForceJson();
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
 

@@ -5,6 +5,24 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.API", "KFH.ValantInventory.API\KFH.ValantInventory.API.csproj", "{EE2FC644-8663-474E-B367-B21E2427611B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.Core", "KFH.ValantInventory.Core\KFH.ValantInventory.Core.csproj", "{2BBA723A-DE90-4742-8885-7945C8C65810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.DataAccess", "KFH.ValantInventory.DataAccess\KFH.ValantInventory.DataAccess.csproj", "{E0F2361B-AA26-4DE7-9DB4-56808D083AF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.Common", "KFH.ValantInventory.Common\KFH.ValantInventory.Common.csproj", "{42461DED-679B-4747-ACE7-493B8D44C601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F17C8C3C-1D1C-48D2-B12E-D30D5A622883}"
+	ProjectSection(SolutionItems) = preProject
+		ValantInventory.postman_collection.json = ValantInventory.postman_collection.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KFH.ValantInventory.UnitTests", "KFH.ValantInventory.UnitTests\KFH.ValantInventory.UnitTests.csproj", "{C9F7A052-2E77-4C09-95A0-B61A01786D24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F41CE6E5-A9DD-4595-9F41-FECA66F3C846}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +33,27 @@ Global
 		{EE2FC644-8663-474E-B367-B21E2427611B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE2FC644-8663-474E-B367-B21E2427611B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE2FC644-8663-474E-B367-B21E2427611B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBA723A-DE90-4742-8885-7945C8C65810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBA723A-DE90-4742-8885-7945C8C65810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBA723A-DE90-4742-8885-7945C8C65810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBA723A-DE90-4742-8885-7945C8C65810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F2361B-AA26-4DE7-9DB4-56808D083AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F2361B-AA26-4DE7-9DB4-56808D083AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F2361B-AA26-4DE7-9DB4-56808D083AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F2361B-AA26-4DE7-9DB4-56808D083AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42461DED-679B-4747-ACE7-493B8D44C601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42461DED-679B-4747-ACE7-493B8D44C601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42461DED-679B-4747-ACE7-493B8D44C601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42461DED-679B-4747-ACE7-493B8D44C601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F7A052-2E77-4C09-95A0-B61A01786D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F7A052-2E77-4C09-95A0-B61A01786D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F7A052-2E77-4C09-95A0-B61A01786D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F7A052-2E77-4C09-95A0-B61A01786D24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9F7A052-2E77-4C09-95A0-B61A01786D24} = {F17C8C3C-1D1C-48D2-B12E-D30D5A622883}
 	EndGlobalSection
 EndGlobal
