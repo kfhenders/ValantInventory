@@ -1,7 +1,6 @@
 ﻿using KFH.ValantInventory.API.Authorization;
 using KFH.ValantInventory.API.Models;
 using KFH.ValantInventory.Common.Interfaces;
-using NLog;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -13,10 +12,10 @@ namespace KFH.ValantInventory.API.Controllers
     [KFHValantAuthorize]
     public class InventoryController : ApiController
     {
-        private readonly ILogger _logger = null;
+        private readonly IInventoryLogger _logger = null;
         private readonly IInventoryRepository _inventoryRepository = null;
 
-        public InventoryController(IInventoryRepository inventoryRepository, ILogger logger)
+        public InventoryController(IInventoryRepository inventoryRepository, IInventoryLogger logger)
         {
             _inventoryRepository = inventoryRepository;
             _logger = logger;

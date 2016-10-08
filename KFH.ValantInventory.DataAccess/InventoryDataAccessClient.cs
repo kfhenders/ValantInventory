@@ -1,8 +1,5 @@
-﻿using KFH.ValantInventory.Common.Exceptions;
-using KFH.ValantInventory.Common.Interfaces;
+﻿using KFH.ValantInventory.Common.Interfaces;
 using KFH.ValantInventory.Common.Models;
-using NLog;
-using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
@@ -12,9 +9,9 @@ namespace KFH.ValantInventory.DataAccess
     {
         private static readonly  ConcurrentDictionary<string, Inventory> LocalDataStore = new ConcurrentDictionary<string, Inventory>();
 
-        private readonly ILogger _logger;
+        private readonly IInventoryLogger _logger;
 
-        public InventoryDataAccessClient(ILogger logger)
+        public InventoryDataAccessClient(IInventoryLogger logger)
         {
             _logger = logger;
         }

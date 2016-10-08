@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IExpiredInventoryQueue.cs" />
     <Compile Include="Interfaces\IInventoryDataAccessClient.cs" />
     <Compile Include="Interfaces\IInventoryDataAccessFactory.cs" />
+    <Compile Include="Interfaces\IInventoryLogger.cs" />
     <Compile Include="Interfaces\IInventoryRepository.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

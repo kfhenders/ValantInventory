@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Valant Inventory Coding Excercise API</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<h1>Valant Inventory Coding Excercise API</h1>
+<p>The following methods are exposed:</p>
+<ol>
+    <li>[POST] /api/Inventory - Creates an item in the inventory</li>
+    <li>[GET] /api/Inventory/{label} - Get's the item in the inventory with the requested label</li>
+    <li>[PUT] /api/Inventory - Updates an exisitng item in the inventory or creates a new one if it doesn't exist</li>
+    <li>[DELETE] /api/Inventory/{label} - Removes the item with the specified label from the inventory</li>
+    <li>[PUT] /api/Inventory/Expire/{label} - Immediately expires the item with the specified label.</li>
+</ol>
+ 
+<p>json format:
+    {
+    "Label": "Foo",
+    "Expiration": "2016-12-31T07:00:00Z",
+    "Type": "Metal"
+    }
+</p>
+
+</body>
+</html>

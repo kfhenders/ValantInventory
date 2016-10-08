@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using KFH.ValantInventory.Common.Interfaces;
 using KFH.ValantInventory.Core.Repositories;
 using Moq;
-using NLog;
 using NUnit.Framework;
 
 namespace KFH.ValantInventory.UnitTests.CoreTests
@@ -23,7 +22,7 @@ namespace KFH.ValantInventory.UnitTests.CoreTests
                 Type = "dfwfsfs"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockDataAccessClient = new Mock<IInventoryDataAccessClient>();
             var stubDeletedInventoryQueue = new Mock<IDeletedInventoryQueue>();
             var stubExpiredInventoryQueue = new Mock<IExpiredInventoryQueue>();
@@ -49,7 +48,7 @@ namespace KFH.ValantInventory.UnitTests.CoreTests
                 Type = "dfwfsfs"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockDataAccessClient = new Mock<IInventoryDataAccessClient>();
             var stubDeletedInventoryQueue = new Mock<IDeletedInventoryQueue>();
             var stubExpiredInventoryQueue = new Mock<IExpiredInventoryQueue>();
@@ -74,7 +73,7 @@ namespace KFH.ValantInventory.UnitTests.CoreTests
                 Type = "dfwfsfs"
             };
 
-            var mockLogger = new Mock<ILogger>();
+            var mockLogger = new Mock<IInventoryLogger>();
             var mockDataAccessClient = new Mock<IInventoryDataAccessClient>();
             var stubDeletedInventoryQueue = new Mock<IDeletedInventoryQueue>();
             var stubExpiredInventoryQueue = new Mock<IExpiredInventoryQueue>();
@@ -85,7 +84,7 @@ namespace KFH.ValantInventory.UnitTests.CoreTests
             var repo = new InventoryRepository(mockFactory, mockLogger.Object);
             mockDataAccessClient.Setup((ir => ir.ReadAsync(item.Label))).Throws(expectedException);
 
-            Assert.Catch<Exception>(() => repo.AddAsync(item).Wait());
+            Assert.Catch<Exception>(() => repo.GetAsync(label).Wait());
             mockLogger.Verify(l => l.Error(expectedException, It.IsAny<string>()));
 
         }

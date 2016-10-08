@@ -4,6 +4,7 @@ using KFH.ValantInventory.Core.Repositories;
 using Microsoft.Practices.Unity;
 using NLog;
 using System.Web.Http;
+using KFH.ValantInventory.Core.Logging;
 using Unity.WebApi;
 
 namespace KFH.ValantInventory.API
@@ -14,7 +15,7 @@ namespace KFH.ValantInventory.API
         {
 			var container = new UnityContainer();
 
-            container.RegisterType<ILogger>(new InjectionFactory(f => LogManager.GetCurrentClassLogger(typeof(Logger))));
+            container.RegisterType<IInventoryLogger, InventoryLogger>();
             container.RegisterType<IInventoryRepository, InventoryRepository>();
             container.RegisterType<IInventoryDataAccessFactory, InventoryDataAccessFactory>();
             

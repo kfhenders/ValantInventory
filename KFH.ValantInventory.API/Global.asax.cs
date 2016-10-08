@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using System.Net.Http.Formatting;
+﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace KFH.ValantInventory.API

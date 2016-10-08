@@ -1,6 +1,5 @@
 ﻿using KFH.ValantInventory.Common.Interfaces;
 using KFH.ValantInventory.Common.Models;
-using NLog;
 using System;
 using System.Threading.Tasks;
 
@@ -8,9 +7,9 @@ namespace KFH.ValantInventory.Core.Repositories
 {
     public class InventoryRepository : IInventoryRepository
     {
-        readonly ILogger _logger = null;
+        private readonly IInventoryLogger _logger = null;
 
-        readonly IInventoryDataAccessFactory _dataAccessFactory;
+        private readonly IInventoryDataAccessFactory _dataAccessFactory;
 
         Lazy<IInventoryDataAccessClient> LazyDataAccessClient =>
             new Lazy<IInventoryDataAccessClient>(() => _dataAccessFactory.CreateInventoryDataAcessClient());
@@ -21,7 +20,7 @@ namespace KFH.ValantInventory.Core.Repositories
         Lazy<IExpiredInventoryQueue> LazyExpiredInventoryQueue =>
             new Lazy<IExpiredInventoryQueue>(() => _dataAccessFactory.CreateExpiredInventoryQueueClient());
 
-        public InventoryRepository(IInventoryDataAccessFactory dataAccessFactory, ILogger logger)
+        public InventoryRepository(IInventoryDataAccessFactory dataAccessFactory, IInventoryLogger logger)
         {
             _logger = logger;
             _dataAccessFactory = dataAccessFactory;

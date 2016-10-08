@@ -1,15 +1,13 @@
-﻿using System;
-using KFH.ValantInventory.Common.Interfaces;
+﻿using KFH.ValantInventory.Common.Interfaces;
 using KFH.ValantInventory.DataAccess;
-using NLog;
 
 namespace KFH.ValantInventory.Core.Factories
 {
     public class InventoryDataAccessFactory : IInventoryDataAccessFactory
     {
-        private readonly ILogger _logger;
+        private readonly IInventoryLogger _logger;
 
-        public InventoryDataAccessFactory(ILogger logger)
+        public InventoryDataAccessFactory(IInventoryLogger logger)
         {
             _logger = logger;
         }

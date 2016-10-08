@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using KFH.ValantInventory.Common.Interfaces;
 using Moq;
 using NUnit.Framework;
-using NLog;
 
 namespace KFH.ValantInventory.UnitTests.ApiTests
 {
@@ -22,7 +21,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
                 Type = "dfwfsfs"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.AddOrUpdateAsync(It.IsAny<Common.Models.Inventory>())).Returns(Task.FromResult(true));
 
@@ -44,7 +43,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
                 Type = "dfwfsfs"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.AddOrUpdateAsync(It.IsAny<Common.Models.Inventory>())).Returns(Task.FromResult(false));
 
@@ -67,7 +66,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
                 Type = "dfwfsfs"
             };
 
-            var mockLogger = new Mock<ILogger>();
+            var mockLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.AddOrUpdateAsync(It.IsAny<Common.Models.Inventory>())).Throws(new Exception("Test Exception Thrown"));
 

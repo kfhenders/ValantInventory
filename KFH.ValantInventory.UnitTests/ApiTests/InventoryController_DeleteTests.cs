@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using KFH.ValantInventory.Common.Interfaces;
 using Moq;
 using NUnit.Framework;
-using NLog;
 
 namespace KFH.ValantInventory.UnitTests.ApiTests
 {
@@ -16,7 +15,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         {
             var label = "InventoryController_Delete_NoContent_Test";
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.DeleteAsync(label)).Returns(Task.FromResult(true));
 
@@ -32,7 +31,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         {
             var label = "InventoryController_Delete_NotFound_Test";
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.DeleteAsync(label)).Returns(Task.FromResult(false));
 
@@ -47,7 +46,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         {
             var label = "InventoryController_Delete_InternalServerError_Test";
 
-            var mockLogger = new Mock<ILogger>();
+            var mockLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.DeleteAsync(label)).Throws(new Exception("Test Exception Thrown"));
 

@@ -7,7 +7,6 @@ using KFH.ValantInventory.API.Controllers;
 using KFH.ValantInventory.Common.Interfaces;
 using Moq;
 using NUnit.Framework;
-using NLog;
 
 namespace KFH.ValantInventory.UnitTests.ApiTests
 {
@@ -26,7 +25,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
                 Type = "dfwfsfs"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.GetAsync(label)).Returns(Task.FromResult(commonItem));
 
@@ -45,7 +44,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         {
             var label = "InventoryController_Get_NotFound_Test";
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.GetAsync(label)).Returns(Task.FromResult(default(Common.Models.Inventory)));
 
@@ -69,7 +68,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
                 Type = "oijlmljpj"
             };
 
-            var stubLogger = new Mock<ILogger>();
+            var stubLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.GetAsync(label)).Returns(Task.FromResult(commonItem));
 
@@ -87,7 +86,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         {
             var label = "InventoryController_Get_InternalServerError_Test";
 
-            var mockLogger = new Mock<ILogger>();
+            var mockLogger = new Mock<IInventoryLogger>();
             var mockRepository = new Mock<IInventoryRepository>();
             mockRepository.Setup(r => r.GetAsync(label)).Throws(new Exception("Test Exception Thrown"));
 
@@ -113,7 +112,7 @@ namespace KFH.ValantInventory.UnitTests.ApiTests
         }
 
 
-        private InventoryController CreateInventoryController(IInventoryRepository repository, ILogger logger)
+        private InventoryController CreateInventoryController(IInventoryRepository repository, IInventoryLogger logger)
         {
             InventoryController controller = new InventoryController(repository, logger);
             controller.Request = new HttpRequestMessage(HttpMethod.Head, "Http://InventoryControllerTests/");

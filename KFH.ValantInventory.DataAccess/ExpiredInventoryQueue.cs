@@ -1,6 +1,5 @@
 ﻿using KFH.ValantInventory.Common.Interfaces;
 using KFH.ValantInventory.Common.Models;
-using NLog;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
@@ -9,18 +8,18 @@ namespace KFH.ValantInventory.DataAccess
 
     public class ExpiredInventoryQueue : IExpiredInventoryQueue
     {
-        static ConcurrentQueue<Inventory> _localQueue = new ConcurrentQueue<Inventory>();
+        private static readonly ConcurrentQueue<Inventory> LocalQueue = new ConcurrentQueue<Inventory>();
 
-        public ILogger _logger;
+        private readonly IInventoryLogger _logger;
 
-        public ExpiredInventoryQueue(ILogger logger)
+        public ExpiredInventoryQueue(IInventoryLogger logger)
         {
             _logger = logger;
         }
 
         public Task Enqueue(Inventory item)
         {
-            _localQueue.Enqueue(item);
+            LocalQueue.Enqueue(item);
             return Task.CompletedTask;
         }
     }
